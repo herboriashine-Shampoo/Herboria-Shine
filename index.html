@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herboria Shine Shampoo – Nature's Touch, Your Best Hair</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a3a2a;
+    --moss: #2d5a3d;
+    --sage: #7aab6e;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #faf6f0;
+    --warm-white: #fff9f2;
+    --text-dark: #1a1a1a;
+    --text-mid: #4a4a4a;
+    --hibiscus: #c94b6e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(250,246,240,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 14px 5%;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--forest);
+    letter-spacing: 0.04em;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--text-mid);
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--forest); }
+  .nav-cta {
+    background: var(--forest);
+    color: #fff !important;
+    padding: 9px 22px !important;
+    border-radius: 50px;
+    transition: background 0.3s !important;
+  }
+  .nav-cta:hover { background: var(--moss) !important; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 24px; height: 2px; background: var(--forest); border-radius: 2px; transition: 0.3s; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e8f0e4 0%, #faf6f0 40%, #f5ede0 100%);
+    display: flex; align-items: center;
+    padding: 100px 5% 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -80px; left: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(122,171,110,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.35);
+    border-radius: 50px;
+    padding: 6px 16px;
+    font-size: 0.78rem; font-weight: 600;
+    color: #7a6020; letter-spacing: 0.08em;
+    text-transform: uppercase; margin-bottom: 20px;
+  }
+  .hero-badge::before { content: '🌿'; font-size: 0.9rem; }
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 700; line-height: 1.1;
+    color: var(--forest);
+  }
+  .hero-tagline em {
+    font-style: italic; color: var(--gold);
+    font-weight: 300;
+  }
+  .hero-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.05rem; color: var(--text-mid);
+    margin: 20px 0 32px; line-height: 1.7; font-weight: 300;
+  }
+  .hero-urdu {
+    font-size: 1.1rem; color: var(--moss);
+    font-weight: 600; margin-bottom: 8px;
+    font-style: italic;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--forest);
+    color: #fff; text-decoration: none;
+    padding: 15px 32px; border-radius: 50px;
+    font-weight: 600; font-size: 0.95rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(26,58,42,0.3);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(26,58,42,0.4); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 2px solid var(--forest);
+    color: var(--forest); text-decoration: none;
+    padding: 13px 28px; border-radius: 50px;
+    font-weight: 600; font-size: 0.95rem;
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover { background: var(--forest); color: #fff; }
+  .hero-stats {
+    display: flex; gap: 24px; margin-top: 40px; flex-wrap: wrap;
+  }
+  .stat {
+    text-align: center;
+    padding: 16px 20px;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem; font-weight: 700; color: var(--forest);
+  }
+  .stat-label { font-size: 0.75rem; color: var(--text-mid); font-weight: 500; }
+  .hero-image-wrap {
+    position: relative; display: flex; justify-content: center; align-items: center;
+  }
+  .hero-bottle-img {
+    width: 100%; max-width: 440px;
+    border-radius: 24px;
+    box-shadow: 0 30px 80px rgba(26,58,42,0.18);
+    animation: float 4s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  .hero-badge-float {
+    position: absolute; top: 20px; right: -10px;
+    background: var(--forest); color: #fff;
+    padding: 10px 18px; border-radius: 50px;
+    font-size: 0.8rem; font-weight: 700;
+    box-shadow: 0 8px 24px rgba(26,58,42,0.35);
+  }
+  .hero-price-float {
+    position: absolute; bottom: 30px; left: -10px;
+    background: var(--gold);
+    padding: 12px 20px; border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(201,168,76,0.4);
+  }
+  .hero-price-float .price-label { font-size: 0.7rem; font-weight: 600; color: #7a6020; }
+  .hero-price-float .price-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; font-weight: 700; color: var(--forest);
+  }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: 80px 5%; }
+  .section-wrap { max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--sage);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700; color: var(--forest);
+    line-height: 1.15;
+  }
+  .section-title em { font-style: italic; color: var(--gold); font-weight: 400; }
+  .section-desc {
+    margin-top: 14px; font-size: 1rem; color: var(--text-mid);
+    line-height: 1.75; max-width: 540px; font-weight: 300;
+  }
+
+  /* ── MARQUEE ── */
+  .marquee-strip {
+    background: var(--forest);
+    color: #fff; padding: 14px 0;
+    overflow: hidden; white-space: nowrap;
+  }
+  .marquee-inner {
+    display: inline-flex; gap: 0;
+    animation: marquee 20s linear infinite;
+  }
+  .marquee-item {
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0 30px;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .marquee-item::after { content: '✦'; color: var(--gold-light); }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ── BENEFITS ── */
+  .benefits-section { background: var(--cream); }
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px; margin-top: 48px;
+  }
+  .benefit-card {
+    background: #fff;
+    border: 1px solid rgba(122,171,110,0.2);
+    border-radius: 20px;
+    padding: 28px;
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative; overflow: hidden;
+  }
+  .benefit-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--sage), var(--gold));
+    transform: scaleX(0); transition: transform 0.3s;
+    transform-origin: left;
+  }
+  .benefit-card:hover::before { transform: scaleX(1); }
+  .benefit-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,58,42,0.1); }
+  .benefit-icon {
+    width: 52px; height: 52px;
+    background: linear-gradient(135deg, rgba(122,171,110,0.15), rgba(201,168,76,0.1));
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; margin-bottom: 16px;
+  }
+  .benefit-title { font-weight: 700; font-size: 0.95rem; color: var(--forest); margin-bottom: 8px; }
+  .benefit-desc { font-size: 0.875rem; color: var(--text-mid); line-height: 1.6; font-weight: 300; }
+
+  /* ── INGREDIENTS ── */
+  .ingredients-section {
+    background: linear-gradient(160deg, var(--forest) 0%, #0f2a1c 100%);
+    color: #fff;
+  }
+  .ingredients-section .section-title { color: #fff; }
+  .ingredients-section .section-desc { color: rgba(255,255,255,0.7); }
+  .ingredients-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px; margin-top: 48px;
+  }
+  .ingredient-card {
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 20px;
+    padding: 28px 22px;
+    text-align: center;
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(8px);
+    transition: border-color 0.3s, background 0.3s, transform 0.25s;
+  }
+  .ingredient-card:hover {
+    border-color: rgba(201,168,76,0.6);
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-4px);
+  }
+  .ingredient-emoji { font-size: 2.4rem; margin-bottom: 14px; display: block; }
+  .ingredient-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; font-weight: 700; color: var(--gold-light);
+    margin-bottom: 10px;
+  }
+  .ingredient-desc { font-size: 0.85rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+  /* ── BEFORE AFTER ── */
+  .ba-section { background: var(--warm-white); }
+  .ba-layout {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: center; margin-top: 48px;
+  }
+  .ba-card {
+    border-radius: 24px; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(26,58,42,0.12);
+  }
+  .ba-header {
+    padding: 14px 24px;
+    font-weight: 700; font-size: 1rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .ba-header.before { background: #f0e8e8; color: #8b2020; }
+  .ba-header.after { background: #e8f0e8; color: #1a5c1a; }
+  .ba-body { padding: 20px 24px; background: #fff; }
+  .ba-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .ba-list li {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.9rem; color: var(--text-mid);
+  }
+  .ba-list li .dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  }
+  .ba-list.neg .dot { background: #c94b4b; }
+  .ba-list.pos .dot { background: var(--sage); }
+  .ba-right { }
+  .ba-testimonials { display: flex; flex-direction: column; gap: 20px; }
+  .testi-mini {
+    background: #fff;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 16px 16px 0;
+    padding: 18px 22px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .testi-mini-name { font-weight: 700; font-size: 0.85rem; color: var(--forest); margin-bottom: 6px; }
+  .testi-mini-stars { color: var(--gold); font-size: 0.8rem; margin-bottom: 8px; }
+  .testi-mini-text { font-size: 0.875rem; color: var(--text-mid); line-height: 1.6; font-style: italic; }
+
+  /* ── REVIEWS ── */
+  .reviews-section { background: var(--cream); }
+  .reviews-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px; margin-top: 48px;
+  }
+  .review-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+  }
+  .review-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.1); }
+  .review-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem; color: var(--gold); line-height: 0.5;
+    margin-bottom: 16px; display: block;
+  }
+  .review-text { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 20px; }
+  .review-footer { display: flex; align-items: center; gap: 12px; }
+  .review-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--sage), var(--forest));
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 700; font-size: 1rem; flex-shrink: 0;
+  }
+  .review-name { font-weight: 700; font-size: 0.88rem; color: var(--forest); }
+  .review-loc { font-size: 0.78rem; color: var(--text-mid); }
+  .review-stars { color: #f5a623; font-size: 0.9rem; margin-top: 2px; }
+
+  /* ── HOW TO USE ── */
+  .howto-section { background: var(--warm-white); }
+  .steps-layout {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 32px; margin-top: 48px;
+  }
+  .step-card {
+    text-align: center; padding: 36px 24px;
+    background: #fff;
+    border-radius: 24px;
+    border: 1px solid rgba(122,171,110,0.15);
+    position: relative;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .step-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,58,42,0.1); }
+  .step-num {
+    width: 56px; height: 56px;
+    background: var(--forest);
+    color: #fff; border-radius: 50%;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+  }
+  .step-emoji { font-size: 2.2rem; display: block; margin-bottom: 14px; }
+  .step-title { font-weight: 700; font-size: 1rem; color: var(--forest); margin-bottom: 10px; }
+  .step-desc { font-size: 0.875rem; color: var(--text-mid); line-height: 1.65; }
+
+  /* ── BADGES ── */
+  .badges-strip {
+    background: var(--forest);
+    padding: 40px 5%;
+  }
+  .badges-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-around;
+    flex-wrap: wrap; gap: 24px;
+  }
+  .badge-item {
+    text-align: center; color: #fff;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+  }
+  .badge-icon { font-size: 2rem; }
+  .badge-label { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.8); }
+
+  /* ── ORDER ── */
+  .order-section {
+    background: linear-gradient(135deg, #e8f0e4 0%, #faf6f0 60%, #f5ede0 100%);
+    padding: 100px 5%;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .order-section::before {
+    content: '';
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(122,171,110,0.1) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .order-wrap { max-width: 680px; margin: 0 auto; position: relative; }
+  .order-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 700; color: var(--forest);
+    line-height: 1.15; margin-bottom: 18px;
+  }
+  .order-title em { font-style: italic; color: var(--gold); }
+  .order-desc { font-size: 1rem; color: var(--text-mid); margin-bottom: 16px; line-height: 1.7; }
+  .order-price-box {
+    display: inline-flex; align-items: center; gap: 16px;
+    background: #fff;
+    border: 2px solid rgba(201,168,76,0.4);
+    border-radius: 20px;
+    padding: 18px 32px;
+    margin: 24px 0;
+    box-shadow: 0 8px 32px rgba(26,58,42,0.1);
+  }
+  .order-price-label { font-size: 0.85rem; color: var(--text-mid); font-weight: 500; }
+  .order-price-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem; font-weight: 700; color: var(--forest);
+  }
+  .order-price-size { font-size: 0.8rem; color: var(--text-mid); }
+  .whatsapp-btn {
+    display: inline-flex; align-items: center; gap: 14px;
+    background: #25D366;
+    color: #fff; text-decoration: none;
+    padding: 18px 40px; border-radius: 50px;
+    font-size: 1.1rem; font-weight: 700;
+    box-shadow: 0 8px 32px rgba(37,211,102,0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 8px;
+  }
+  .whatsapp-btn:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(37,211,102,0.45); }
+  .whatsapp-btn svg { width: 26px; height: 26px; fill: #fff; }
+  .order-note {
+    margin-top: 20px; font-size: 0.85rem; color: var(--text-mid);
+    display: flex; align-items: center; gap: 6px; justify-content: center;
+  }
+  .order-extras {
+    display: flex; justify-content: center; gap: 24px;
+    margin-top: 28px; flex-wrap: wrap;
+  }
+  .order-extra-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.85rem; color: var(--text-mid); font-weight: 500;
+  }
+  .order-extra-item::before { content: '✓'; color: var(--sage); font-weight: 700; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0f2a1c;
+    color: rgba(255,255,255,0.7);
+    padding: 50px 5% 28px;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 700; color: #fff;
+    margin-bottom: 12px;
+  }
+  .footer-logo span { color: var(--gold-light); }
+  .footer-tagline { font-size: 0.85rem; margin-bottom: 24px; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
+  .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--gold-light); }
+  .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0; }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+
+  .fixed-delivery-charge {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(122,171,110,0.25);
+    background: #f3f0e8;
+    color: var(--forest);
+    font-weight: 700;
+    user-select: none;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 12px 5%; }
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 60px; left: 0; right: 0; background: rgba(250,246,240,0.98); padding: 20px 5%; border-bottom: 1px solid rgba(201,168,76,0.2); }
+    .nav-links.open { display: flex; }
+    .hamburger { display: flex; }
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    .hero-actions { justify-content: center; }
+    .hero-stats { justify-content: center; }
+    .hero-image-wrap { order: -1; }
+    .hero-bottle-img { max-width: 280px; }
+    .hero-badge-float { right: 10px; }
+    .hero-price-float { left: 10px; }
+    .ba-layout { grid-template-columns: 1fr; gap: 32px; }
+    .steps-layout { grid-template-columns: 1fr; }
+    .badges-inner { gap: 18px; }
+    .order-price-box { flex-direction: column; gap: 8px; }
+    .section-desc { max-width: 100%; }
+  }
+
+  /* ── STICKY WHATSAPP ── */
+  .sticky-wa {
+    position: fixed; bottom: 28px; right: 28px; z-index: 200;
+    background: #25D366;
+    color: #fff; text-decoration: none;
+    width: 60px; height: 60px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 28px rgba(37,211,102,0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: pulse-wa 2.5s infinite;
+  }
+  .sticky-wa:hover { transform: scale(1.1); box-shadow: 0 12px 36px rgba(37,211,102,0.6); }
+  .sticky-wa svg { width: 28px; height: 28px; fill: #fff; }
+  @keyframes pulse-wa {
+    0%,100% { box-shadow: 0 8px 28px rgba(37,211,102,0.5), 0 0 0 0 rgba(37,211,102,0.4); }
+    50% { box-shadow: 0 8px 28px rgba(37,211,102,0.5), 0 0 0 14px rgba(37,211,102,0); }
+  }
+
+
+  /* -- POSTEX ORDER FORM -- */
+  .order-form-card {
+    margin-top: 28px;
+    background: rgba(255,255,255,0.88);
+    border: 1px solid rgba(201,168,76,0.32);
+    border-radius: 26px;
+    padding: 28px;
+    box-shadow: 0 16px 55px rgba(26,58,42,0.12);
+    text-align: left;
+    backdrop-filter: blur(10px);
+  }
+  .order-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .form-group { display: flex; flex-direction: column; gap: 7px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-group label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--forest);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    border: 1px solid rgba(122,171,110,0.35);
+    border-radius: 14px;
+    padding: 13px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    background: #fff;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--forest);
+    box-shadow: 0 0 0 3px rgba(26,58,42,0.08);
+  }
+  .form-group textarea { min-height: 92px; resize: vertical; }
+  .required-mark { color: var(--hibiscus); }
+  .qty-control {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(122,171,110,0.35);
+    border-radius: 14px;
+    background: #fff;
+    overflow: hidden;
+  }
+  .qty-control button {
+    width: 44px;
+    height: 46px;
+    border: 0;
+    background: rgba(122,171,110,0.1);
+    color: var(--forest);
+    font-size: 1.3rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .qty-control input {
+    border: 0;
+    border-radius: 0;
+    text-align: center;
+    box-shadow: none !important;
+    padding: 12px 4px;
+  }
+  .order-summary-box {
+    margin: 22px 0;
+    border-radius: 18px;
+    background: rgba(26,58,42,0.06);
+    border: 1px solid rgba(26,58,42,0.12);
+    padding: 18px;
+  }
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 7px 0;
+    font-size: 0.92rem;
+    color: var(--text-mid);
+  }
+  .summary-row strong { color: var(--forest); }
+  .summary-row.total {
+    border-top: 1px solid rgba(26,58,42,0.14);
+    margin-top: 8px;
+    padding-top: 14px;
+    font-size: 1.08rem;
+    color: var(--forest);
+  }
+  .confirm-box {
+    display: none;
+    margin-top: 20px;
+    border-radius: 20px;
+    background: #fff;
+    border: 2px solid rgba(201,168,76,0.5);
+    padding: 20px;
+  }
+  .confirm-box.show { display: block; }
+  .confirm-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--forest);
+    margin-bottom: 10px;
+  }
+  .confirm-details {
+    white-space: pre-wrap;
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: var(--text-mid);
+    background: rgba(250,246,240,0.85);
+    border-radius: 14px;
+    padding: 14px;
+    margin: 12px 0 16px;
+  }
+  .form-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .btn-form {
+    border: 0;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .btn-outline {
+    background: transparent;
+    border: 2px solid var(--forest);
+    color: var(--forest);
+    padding: 13px 22px;
+    border-radius: 50px;
+    font-weight: 700;
+  }
+  .form-help {
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    line-height: 1.5;
+    margin-top: 12px;
+  }
+  .form-error {
+    display: none;
+    margin: 14px 0 0;
+    color: #8b2020;
+    background: #f7eaea;
+    border: 1px solid #e8c8c8;
+    border-radius: 12px;
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+  .form-error.show { display: block; }
+
+
+  @media (max-width: 768px) {
+    .order-form-card { padding: 20px; }
+    .order-form-grid { grid-template-columns: 1fr; }
+    .form-actions { justify-content: center; }
+    .btn-form, .confirm-whatsapp { width: 100%; justify-content: center; text-align: center; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- STICKY WHATSAPP -->
+<a href="https://wa.me/923175308757" class="sticky-wa" title="Chat on WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Herb<span>o</span>ria</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#benefits">Benefits</a></li>
+    <li><a href="#ingredients">Ingredients</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#howto">How To Use</a></li>
+    <li><a href="#order" class="nav-cta">Order Now</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">Made in Pakistan · 100% Original</div>
+      <p class="hero-urdu">Ek Wash Nahi, Ek Transformation!</p>
+      <h1 class="hero-tagline">
+        Goodbye Dull Hair,<br>
+        Hello <em>Confidence!</em>
+      </h1>
+      <p class="hero-sub">
+        Herboria Shine is a nourishing shampoo enriched with Hibiscus Extract &amp; Herbal Oils that deeply cleanses, nourishes, and brings out your hair's natural shine, strength, and softness.
+      </p>
+      <div class="hero-actions">
+        <a href="#order" class="btn-primary">Order Now</a>
+        <a href="#benefits" class="btn-secondary">Learn More ↓</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">99%</div><div class="stat-label">Customer Satisfaction</div></div>
+        <div class="stat"><div class="stat-num">250ml</div><div class="stat-label">Generous Size</div></div>
+        <div class="stat"><div class="stat-num">Rs.550</div><div class="stat-label">Best Value</div></div>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <img src="https://images.unsplash.com/photo-1631390659961-9e5836c3cd3d?w=600&q=80" alt="Herboria Shine Shampoo" class="hero-bottle-img" onerror="this.style.display='none'">
+      <!-- Fallback visual if image doesn't load -->
+      <div style="width:100%;max-width:440px;min-height:420px;border-radius:24px;background:linear-gradient(135deg,#e8f0e4,#c9e8b4,#f5ede0);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 30px 80px rgba(26,58,42,0.18);padding:40px 30px;text-align:center;animation:float 4s ease-in-out infinite;" id="bottleFallback">
+        <div style="font-size:5rem;margin-bottom:16px;">🌿</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--forest);">Herboria</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;color:var(--gold);letter-spacing:0.06em;">SHINE</div>
+        <div style="font-size:0.9rem;letter-spacing:0.18em;color:var(--text-mid);margin-bottom:16px;">SHAMPOO</div>
+        <div style="background:var(--forest);color:#fff;border-radius:12px;padding:12px 22px;font-size:0.8rem;font-weight:600;">Hibiscus Extract &amp; Herbal Oils</div>
+        <div style="margin-top:14px;font-weight:700;color:var(--text-mid);">250 ml · Rs. 550</div>
+      </div>
+      <div class="hero-badge-float">🌺 Paraben Free</div>
+      <div class="hero-price-float">
+        <div class="price-label">Only</div>
+        <div class="price-val">Rs. 550</div>
+        <div class="price-label">250 ml</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span class="marquee-item">Hibiscus Extract</span>
+    <span class="marquee-item">Paraben Free</span>
+    <span class="marquee-item">Silicone Free</span>
+    <span class="marquee-item">Salon Jaise Results Ghar Baithe</span>
+    <span class="marquee-item">99% Customer Satisfaction</span>
+    <span class="marquee-item">Fast Delivery All Over Pakistan</span>
+    <span class="marquee-item">Dermatologically Tested</span>
+    <span class="marquee-item">Herbal Oils</span>
+    <span class="marquee-item">Hibiscus Extract</span>
+    <span class="marquee-item">Paraben Free</span>
+    <span class="marquee-item">Silicone Free</span>
+    <span class="marquee-item">Salon Jaise Results Ghar Baithe</span>
+    <span class="marquee-item">99% Customer Satisfaction</span>
+    <span class="marquee-item">Fast Delivery All Over Pakistan</span>
+    <span class="marquee-item">Dermatologically Tested</span>
+    <span class="marquee-item">Herbal Oils</span>
+  </div>
+</div>
+
+<!-- BENEFITS -->
+<section class="benefits-section" id="benefits">
+  <div class="section-wrap">
+    <div class="reveal">
+      <p class="section-label">Why Choose Herboria</p>
+      <h2 class="section-title">Amazing Benefits<br>You'll <em>Love</em></h2>
+      <p class="section-desc">Ab har wash mein mile salon jaise results — ghar baithe! Every bottle is crafted with nature's finest ingredients for truly transformative results.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">✨</div>
+        <div class="benefit-title">Boosts Natural Shine</div>
+        <div class="benefit-desc">Instantly revives dull hair and gives a healthy, radiant glow that lasts all day long.</div>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">💧</div>
+        <div class="benefit-title">Deeply Nourishes</div>
+        <div class="benefit-desc">Enriched with Hibiscus &amp; herbal oils that go deep inside and nourish every single strand.</div>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">🌱</div>
+        <div class="benefit-title">Strengthens From Roots</div>
+        <div class="benefit-desc">Makes hair roots stronger, significantly reduces breakage, and minimizes hair fall.</div>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">🛡️</div>
+        <div class="benefit-title">Reduces Hair Fall</div>
+        <div class="benefit-desc">Helps reduce hair fall due to breakage and makes hair thicker and stronger with regular use.</div>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">🪄</div>
+        <div class="benefit-title">Makes Hair Soft &amp; Smooth</div>
+        <div class="benefit-desc">Leaves hair silky, smooth, and frizz-free. Easy to comb and a joy to manage every day.</div>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">🌬️</div>
+        <div class="benefit-title">Controls Frizz &amp; Flyaways</div>
+        <div class="benefit-desc">Keeps hair tangle-free and frizz-free all day long for a polished, salon-finished look.</div>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">🐰</div>
+        <div class="benefit-title">Gentle &amp; Safe</div>
+        <div class="benefit-desc">Paraben &amp; silicone free formula that is gentle on scalp and suitable for daily use.</div>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">👩‍🦱</div>
+        <div class="benefit-title">Suitable for All Hair Types</div>
+        <div class="benefit-desc">Perfect for straight, wavy, curly, colored, or treated hair. Works for everyone.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INGREDIENTS -->
+<section class="ingredients-section" id="ingredients">
+  <div class="section-wrap">
+    <div class="reveal">
+      <p class="section-label" style="color:var(--gold-light)">Power of Nature</p>
+      <h2 class="section-title">Nature's Best<br><em>In Every Wash</em></h2>
+      <p class="section-desc">Each ingredient is carefully selected to deliver maximum benefit to your hair and scalp.</p>
+    </div>
+    <div class="ingredients-grid">
+      <div class="ingredient-card reveal">
+        <span class="ingredient-emoji">🌺</span>
+        <div class="ingredient-name">Hibiscus Extract</div>
+        <div class="ingredient-desc">Promotes hair growth, strengthens roots, reduces hair fall, and adds brilliant natural shine using amino acids.</div>
+      </div>
+      <div class="ingredient-card reveal">
+        <span class="ingredient-emoji">🌿</span>
+        <div class="ingredient-name">Herbal Oils Blend</div>
+        <div class="ingredient-desc">Deeply nourishes every strand, moisturizes the scalp, and adds a lasting natural, healthy shine.</div>
+      </div>
+      <div class="ingredient-card reveal">
+        <span class="ingredient-emoji">🍃</span>
+        <div class="ingredient-name">Neem Extract</div>
+        <div class="ingredient-desc">Purifies the scalp, fights dandruff effectively, and prevents itchiness for a clean, healthy scalp.</div>
+      </div>
+      <div class="ingredient-card reveal">
+        <span class="ingredient-emoji">🌾</span>
+        <div class="ingredient-name">Fenugreek Extract</div>
+        <div class="ingredient-desc">Repairs damage, adds incredible smoothness, and reduces frizz for manageable, beautiful hair.</div>
+      </div>
+    </div>
+    <div style="margin-top:48px;padding:28px 36px;border:1px solid rgba(201,168,76,0.3);border-radius:20px;background:rgba(255,255,255,0.04);" class="reveal">
+      <p style="font-size:0.75rem;color:var(--gold-light);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;">Full Ingredients List</p>
+      <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.8;">Aqua, Sodium Laureth Sulfate, Cocamidopropyl Betaine, Glycerin, Polyquaternium-7, Hibiscus Rosa-Sinensis Flower Extract, Herbal Oil Blend, Panthenol, Guar Hydroxypropyltrimonium Chloride, Sodium Chloride, Citric Acid, Disodium EDTA, Phenoxyethanol, Ethylhexylglycerin, Fragrance, CI 16255.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="ba-section" id="results">
+  <div class="section-wrap">
+    <div class="reveal">
+      <p class="section-label">Real People, Real Results</p>
+      <h2 class="section-title">Real Transformation,<br><em>Real Confidence</em></h2>
+      <p class="section-desc">See the difference Herboria Shine makes — customers share their honest before &amp; after experiences.</p>
+    </div>
+    <div class="ba-layout">
+      <div>
+        <div class="ba-card reveal">
+          <div class="ba-header before">❌ Before Herboria Shine</div>
+          <div class="ba-body">
+            <ul class="ba-list neg">
+              <li><span class="dot"></span>Dull, Frizzy, Rough Hair</li>
+              <li><span class="dot"></span>Hair Fall &amp; Breakage</li>
+              <li><span class="dot"></span>Dry &amp; Lifeless Hair</li>
+              <li><span class="dot"></span>Itchy, Flaky Scalp</li>
+              <li><span class="dot"></span>Tangled, Unmanageable Hair</li>
+            </ul>
+          </div>
+        </div>
+        <div style="text-align:center;font-size:2rem;padding:16px;">↓</div>
+        <div class="ba-card reveal">
+          <div class="ba-header after">✅ After Herboria Shine</div>
+          <div class="ba-body">
+            <ul class="ba-list pos">
+              <li><span class="dot"></span>Shiny, Smooth, Silky Hair</li>
+              <li><span class="dot"></span>Stronger, Healthier Hair</li>
+              <li><span class="dot"></span>Soft, Manageable &amp; Gorgeous</li>
+              <li><span class="dot"></span>Clean, Fresh Scalp</li>
+              <li><span class="dot"></span>Frizz-Free, Lustrous Locks</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="ba-testimonials reveal">
+        <div class="testi-mini">
+          <div class="testi-mini-name">Mirha</div>
+          <div class="testi-mini-stars">★★★★★</div>
+          <div class="testi-mini-text">"Maine Herboria Shine use karna start kiya hai 1.5 week pehle. Hair fall kaafi kam hua hai pehle se. Aur hair bohot soft &amp; shiny ho gaye hain — especially sunlight mein bohot healthy lagte hain. Scalp bhi fresh feel hoti hai!"</div>
+        </div>
+        <div class="testi-mini">
+          <div class="testi-mini-name">Laiba</div>
+          <div class="testi-mini-stars">★★★★★</div>
+          <div class="testi-mini-text">"Maine Herboria Shine 2 weeks use kiya. Hair fall kam ho gya hai kaafi had tak. Hair bohot soft aur smooth feel ho rahe hain. Especially shine — hairs look so healthy now! Plus herbal fragrance bohot refreshing hai. Definitely recommend karen gi sabko!"</div>
+        </div>
+        <div class="testi-mini">
+          <div class="testi-mini-name">Amira</div>
+          <div class="testi-mini-stars">★★★★★</div>
+          <div class="testi-mini-text">"Iska texture bilkul thick gel jaisa hai aur usmein chote chote golden particles hain. Shine to aisi aati hai jaise koi expensive treatment karwaya ho. Baal itne dense aur lively lagte hain. Sirf Rs. 550 ka hai!"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section" id="reviews">
+  <div class="section-wrap">
+    <div class="reveal">
+      <p class="section-label">Customer Love</p>
+      <h2 class="section-title">Loved by <em>Thousands!</em></h2>
+      <p class="section-desc">Join thousands of happy customers across Pakistan who have transformed their hair with Herboria Shine.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <span class="review-quote">"</span>
+        <p class="review-text">Meri hair fall problem sirf 2 hafton mein kam ho gayi! Hair itni smooth aur shiny ho gayi ke sab poochte hain kya use karti ho!</p>
+        <div class="review-footer">
+          <div class="review-avatar">A</div>
+          <div>
+            <div class="review-name">Ayesha</div>
+            <div class="review-loc">Lahore</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <span class="review-quote">"</span>
+        <p class="review-text">Itna amazing shampoo! Pehli baar use kiya aur result salon se bhi better. Frizz gayab, shine zabardast!</p>
+        <div class="review-footer">
+          <div class="review-avatar">S</div>
+          <div>
+            <div class="review-name">Sana</div>
+            <div class="review-loc">Karachi</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <span class="review-quote">"</span>
+        <p class="review-text">Best shampoo ever! Natural ingredients ka magic hai. Hair soft, strong aur manageable ho gayi. Highly recommended!</p>
+        <div class="review-footer">
+          <div class="review-avatar">H</div>
+          <div>
+            <div class="review-name">Hira</div>
+            <div class="review-loc">Islamabad</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <span class="review-quote">"</span>
+        <p class="review-text">Maine kai shampoos try kiye but yeh sab se best hai! Hair fall ruk gaya, volume aur smoothness dono mil gaye.</p>
+        <div class="review-footer">
+          <div class="review-avatar">M</div>
+          <div>
+            <div class="review-name">Mariam</div>
+            <div class="review-loc">Faisalabad</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <span class="review-quote">"</span>
+        <p class="review-text">Daily use ke liye perfect! Scalp clean, hair fresh, aur smell bohot soothing hai. Definitely repurchase karungi!</p>
+        <div class="review-footer">
+          <div class="review-avatar">Z</div>
+          <div>
+            <div class="review-name">Zainab</div>
+            <div class="review-loc">Multan</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal" style="display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--forest),#0f2a1c);color:#fff;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:700;color:var(--gold-light);">99%</div>
+        <div style="font-weight:700;font-size:1rem;margin:8px 0;">Customer Satisfaction</div>
+        <div style="font-size:0.85rem;color:rgba(255,255,255,0.7);text-align:center;">Join thousands of happy customers all over Pakistan!</div>
+        <a href="#order" style="margin-top:20px;background:#25D366;color:#fff;text-decoration:none;padding:12px 24px;border-radius:50px;font-size:0.85rem;font-weight:700;">Order Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO USE -->
+<section class="howto-section" id="howto">
+  <div class="section-wrap">
+    <div class="reveal" style="text-align:center;">
+      <p class="section-label">Simple &amp; Effective</p>
+      <h2 class="section-title" style="text-align:center;">Use Karny Ka<br><em>Behtareen Tareeqa</em></h2>
+      <p class="section-desc" style="margin:14px auto 0;text-align:center;">Three simple steps to salon-quality hair at home, every single wash.</p>
+    </div>
+    <div class="steps-layout">
+      <div class="step-card reveal">
+        <div class="step-num">1</div>
+        <span class="step-emoji">🚿</span>
+        <div class="step-title">Pani Se Gheela Karein</div>
+        <div class="step-desc">Apne poore baalon aur jild ko achi tarah paani se gheela karein taake shampoo sahi tarah foam banaye.</div>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">2</div>
+        <span class="step-emoji">🖐️</span>
+        <div class="step-title">Massage Karke Foam Banayein</div>
+        <div class="step-desc">Thora sa shampoo lein aur scalp par 1-2 minute tak naram hathoon se circular motion mein massage karein.</div>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">3</div>
+        <span class="step-emoji">✔️</span>
+        <div class="step-title">Achi Tarah Rinse Karein</div>
+        <div class="step-desc">Pure baalon ko dhoo kar shampoo ka poora asar khatam kar dein. Jab paani saaf aane lage tab rinse complete hai.</div>
+      </div>
+    </div>
+    <div style="margin-top:36px;padding:24px 32px;background:rgba(122,171,110,0.08);border-radius:16px;border:1px solid rgba(122,171,110,0.2);text-align:center;" class="reveal">
+      <strong style="color:var(--forest);">💡 Pro Tip:</strong> <span style="color:var(--text-mid);font-size:0.9rem;">For best results, use regularly 2–3 times per week. Suitable for daily use on all hair types.</span>
+    </div>
+  </div>
+</section>
+
+<!-- BADGES -->
+<div class="badges-strip">
+  <div class="badges-inner">
+    <div class="badge-item">
+      <div class="badge-icon">🏆</div>
+      <div class="badge-label">100% Original<br>Premium Quality</div>
+    </div>
+    <div class="badge-item">
+      <div class="badge-icon">🇵🇰</div>
+      <div class="badge-label">Made in Pakistan<br>with Care</div>
+    </div>
+    <div class="badge-item">
+      <div class="badge-icon">🔬</div>
+      <div class="badge-label">Dermatologically<br>Tested</div>
+    </div>
+    <div class="badge-item">
+      <div class="badge-icon">🐰</div>
+      <div class="badge-label">Paraben &amp; Silicone<br>Free Formula</div>
+    </div>
+    <div class="badge-item">
+      <div class="badge-icon">🚚</div>
+      <div class="badge-label">Fast Delivery<br>All Over Pakistan</div>
+    </div>
+    <div class="badge-item">
+      <div class="badge-icon">💚</div>
+      <div class="badge-label">Trusted by Thousands<br>of Customers</div>
+    </div>
+  </div>
+</div>
+
+<!-- ORDER -->
+<section class="order-section" id="order">
+  <div class="order-wrap">
+    <div class="reveal">
+      <p class="section-label" style="text-align:center;">Limited Stock Available</p>
+      <h2 class="order-title">Order Now &amp; Feel<br>The <em>Difference!</em></h2>
+      <p class="order-desc">Fill your delivery details below. We will prepare the order details needed for PostEx, show you a final confirmation, and then send the complete order to us by email notification.</p>
+    </div>
+
+    <div class="order-price-box reveal">
+      <div>
+        <div class="order-price-label">Special Price</div>
+        <div class="order-price-val">Rs. 550</div>
+        <div class="order-price-size">250 ml bottle</div>
+      </div>
+      <div style="width:1px;height:60px;background:rgba(201,168,76,0.3);"></div>
+      <div style="text-align:left;">
+        <div style="font-size:0.8rem;color:var(--text-mid);margin-bottom:6px;">✓ Cash on Delivery</div>
+        <div style="font-size:0.8rem;color:var(--text-mid);margin-bottom:6px;">✓ PostEx Delivery Details</div>
+        <div style="font-size:0.8rem;color:var(--text-mid);">✓ Email Order Notification</div>
+      </div>
+    </div>
+
+    <form id="postexOrderForm" name="herboria-order" class="order-form-card reveal" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="herboria-order">
+      <p style="display:none;">
+        <label>Do not fill this out if you are human: <input name="bot-field"></label>
+      </p>
+      <input type="hidden" id="orderRefField" name="orderRef" value="">
+      <input type="hidden" id="productNameField" name="productName" value="Herboria Shine Shampoo 250ml">
+      <input type="hidden" id="unitPriceField" name="unitPrice" value="550">
+      <input type="hidden" id="subtotalField" name="subtotal" value="">
+      <input type="hidden" id="deliveryChargesField" name="deliveryCharges" value="250">
+      <input type="hidden" id="codAmountField" name="codAmount" value="">
+      <input type="hidden" id="paymentMethodField" name="paymentMethod" value="Cash on Delivery">
+      <input type="hidden" id="orderMessageField" name="orderMessage" value="">
+      <input type="hidden" name="sendTo" value="herboriashine@gmail.com">
+      <div class="order-form-grid">
+        <div class="form-group">
+          <label for="customerName">Full Name <span class="required-mark">*</span></label>
+          <input id="customerName" name="customerName" type="text" placeholder="Customer full name" required>
+        </div>
+        <div class="form-group">
+          <label for="customerPhone">Phone / WhatsApp <span class="required-mark">*</span></label>
+          <input id="customerPhone" name="customerPhone" type="tel" placeholder="03XXXXXXXXX" required>
+        </div>
+        <div class="form-group">
+          <label for="cityName">City <span class="required-mark">*</span></label>
+          <input id="cityName" name="cityName" type="text" placeholder="Lahore, Karachi, Islamabad..." required>
+        </div>
+        <div class="form-group">
+          <label for="provinceName">Province <span class="required-mark">*</span></label>
+          <select id="provinceName" name="provinceName" required>
+            <option value="">Select province</option>
+            <option>Punjab</option>
+            <option>Sindh</option>
+            <option>Khyber Pakhtunkhwa</option>
+            <option>Balochistan</option>
+            <option>Islamabad Capital Territory</option>
+            <option>Azad Kashmir</option>
+            <option>Gilgit-Baltistan</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label for="customerAddress">Complete Delivery Address <span class="required-mark">*</span></label>
+          <textarea id="customerAddress" name="customerAddress" placeholder="House/shop number, street, area, landmark" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="productQty">Quantity <span class="required-mark">*</span></label>
+          <div class="qty-control">
+            <button type="button" id="qtyMinus" aria-label="Decrease quantity">−</button>
+            <input id="productQty" name="productQty" type="number" min="1" max="20" value="1" required>
+            <button type="button" id="qtyPlus" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Delivery Charges</label>
+          <p class="fixed-delivery-charge" aria-label="Delivery charges are fixed at Rs. 250">Delivery charges are Rs. 250</p>
+        </div>
+        <div class="form-group full">
+          <label for="orderNotes">Order Notes / Landmark</label>
+          <textarea id="orderNotes" name="orderNotes" placeholder="Any note for rider or seller, optional"></textarea>
+        </div>
+      </div>
+
+      <div class="order-summary-box">
+        <div class="summary-row"><span>Product</span><strong>Herboria Shine Shampoo 250ml</strong></div>
+        <div class="summary-row"><span>Unit Price</span><strong>Rs. <span id="unitPriceText">550</span></strong></div>
+        <div class="summary-row"><span>Quantity</span><strong><span id="qtyText">1</span></strong></div>
+        <div class="summary-row"><span>Delivery Charges</span><strong>Rs. <span id="deliveryText">250</span></strong></div>
+        <div class="summary-row total"><span>COD Amount for PostEx</span><strong>Rs. <span id="totalText">800</span></strong></div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn-primary btn-form">Review Order Details</button>
+        <button type="reset" class="btn-outline btn-form">Clear Form</button>
+      </div>
+      <div id="formError" class="form-error">Please fill all required fields before confirming your order.</div>
+      <p class="form-help">Required for PostEx: customer name, phone number, complete address, city, province, product, quantity, and COD amount. Orders will be captured in Netlify Forms and can be emailed to herboriashine@gmail.com.</p>
+
+      <div id="confirmBox" class="confirm-box">
+        <div class="confirm-title">Confirm Your Order</div>
+        <p class="order-desc" style="margin-bottom:0;">Please check the details. After confirmation, your order will be sent to Herboria Shine by email notification. You do not need to open WhatsApp.</p>
+        <div id="confirmDetails" class="confirm-details"></div>
+        <div class="form-actions">
+          <a id="confirmWhatsapp" class="whatsapp-btn confirm-whatsapp" href="#" target="_blank" rel="noopener">Confirm &amp; Send Order</a>
+          <button type="button" id="editOrder" class="btn-outline btn-form">Edit Details</button>
+        </div>
+      </div>
+    </form>
+
+    <p class="order-note reveal">📞 Call / WhatsApp: <strong>+92 317 530 8757</strong></p>
+    <div class="order-extras reveal">
+      <div class="order-extra-item">Fast Delivery All Over Pakistan</div>
+      <div class="order-extra-item">Cash on Delivery Available</div>
+      <div class="order-extra-item">Limited Stock – Order Now</div>
+      <div class="order-extra-item">Secure &amp; Easy Ordering</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Herb<span>o</span>ria</div>
+  <p class="footer-tagline">Nature's Touch, Your Best Hair · Naturally Beautiful Hair, Ab Har Din!</p>
+  <div class="footer-links">
+    <a href="#benefits">Benefits</a>
+    <a href="#ingredients">Ingredients</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#howto">How To Use</a>
+    <a href="#order">Order Now</a>
+    <a href="https://wa.me/923175308757" target="_blank">WhatsApp</a>
+  </div>
+  <hr class="footer-divider">
+  <p class="footer-copy">© 2026 Herboria. Made in Pakistan with Care. All rights reserved.</p>
+</footer>
+
+<script>
+  // Hamburger
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  // Close nav on link click
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Hide fallback bottle if real image loads
+  document.querySelector('.hero-bottle-img')?.addEventListener('load', () => {
+    const fb = document.getElementById('bottleFallback');
+    if(fb) fb.style.display = 'none';
+  });
+
+
+  // Netlify Forms email order system: review first, then send order without opening WhatsApp or email app
+  const ORDER_EMAIL = 'herboriashine@gmail.com';
+  const UNIT_PRICE = 550;
+  const DELIVERY_CHARGES = 250;
+  const orderForm = document.getElementById('postexOrderForm');
+  const qtyInput = document.getElementById('productQty');
+  const qtyText = document.getElementById('qtyText');
+  const deliveryText = document.getElementById('deliveryText');
+  const totalText = document.getElementById('totalText');
+  const formError = document.getElementById('formError');
+  const confirmBox = document.getElementById('confirmBox');
+  const confirmDetails = document.getElementById('confirmDetails');
+  const confirmWhatsapp = document.getElementById('confirmWhatsapp');
+  let currentOrderRef = '';
+
+  function cleanValue(id) {
+    return (document.getElementById(id)?.value || '').trim();
+  }
+
+  function makeOrderRef() {
+    return 'HERB-' + Date.now().toString().slice(-6);
+  }
+
+  function updateOrderSummary() {
+    const qty = Math.max(1, parseInt(qtyInput.value, 10) || 1);
+    const delivery = DELIVERY_CHARGES;
+    qtyInput.value = qty;
+    qtyText.textContent = qty;
+    deliveryText.textContent = delivery;
+    totalText.textContent = (qty * UNIT_PRICE) + delivery;
+  }
+
+  function buildOrderData(orderRef) {
+    const qty = Math.max(1, parseInt(qtyInput.value, 10) || 1);
+    const delivery = DELIVERY_CHARGES;
+    const subtotal = qty * UNIT_PRICE;
+    const total = subtotal + delivery;
+    const notes = cleanValue('orderNotes') || 'None';
+
+    return {
+      orderRef: orderRef || makeOrderRef(),
+      productName: 'Herboria Shine Shampoo 250ml',
+      unitPrice: UNIT_PRICE,
+      productQty: qty,
+      subtotal,
+      deliveryCharges: delivery,
+      codAmount: total,
+      paymentMethod: 'Cash on Delivery',
+      customerName: cleanValue('customerName'),
+      customerPhone: cleanValue('customerPhone'),
+      customerAddress: cleanValue('customerAddress'),
+      cityName: cleanValue('cityName'),
+      provinceName: cleanValue('provinceName'),
+      orderNotes: notes,
+      sendTo: ORDER_EMAIL
+    };
+  }
+
+  function buildOrderMessage(data) {
+    return `New Herboria Shine Order for PostEx
+
+Order Ref: ${data.orderRef}
+Product: ${data.productName}
+Unit Price: Rs. ${data.unitPrice}
+Quantity: ${data.productQty}
+Subtotal: Rs. ${data.subtotal}
+Delivery Charges: Rs. ${data.deliveryCharges}
+COD Amount: Rs. ${data.codAmount}
+Payment Method: ${data.paymentMethod}
+
+Customer Details:
+Name: ${data.customerName}
+Phone: ${data.customerPhone}
+Address: ${data.customerAddress}
+City: ${data.cityName}
+Province: ${data.provinceName}
+Notes/Landmark: ${data.orderNotes}
+
+Please confirm availability and dispatch through PostEx.`;
+  }
+
+  function setHiddenOrderFields(data, message) {
+    document.getElementById('orderRefField').value = data.orderRef;
+    document.getElementById('subtotalField').value = data.subtotal;
+    document.getElementById('codAmountField').value = data.codAmount;
+    document.getElementById('orderMessageField').value = message;
+  }
+
+  function encodeFormData(data, message) {
+    const params = new URLSearchParams();
+    params.append('form-name', 'herboria-order');
+    params.append('orderRef', data.orderRef);
+    params.append('productName', data.productName);
+    params.append('unitPrice', data.unitPrice);
+    params.append('productQty', data.productQty);
+    params.append('subtotal', data.subtotal);
+    params.append('deliveryCharges', data.deliveryCharges);
+    params.append('codAmount', data.codAmount);
+    params.append('paymentMethod', data.paymentMethod);
+    params.append('customerName', data.customerName);
+    params.append('customerPhone', data.customerPhone);
+    params.append('customerAddress', data.customerAddress);
+    params.append('cityName', data.cityName);
+    params.append('provinceName', data.provinceName);
+    params.append('orderNotes', data.orderNotes);
+    params.append('sendTo', data.sendTo);
+    params.append('orderMessage', message);
+    return params.toString();
+  }
+
+  document.getElementById('qtyMinus')?.addEventListener('click', () => {
+    qtyInput.value = Math.max(1, (parseInt(qtyInput.value, 10) || 1) - 1);
+    updateOrderSummary();
+  });
+  document.getElementById('qtyPlus')?.addEventListener('click', () => {
+    qtyInput.value = Math.min(20, (parseInt(qtyInput.value, 10) || 1) + 1);
+    updateOrderSummary();
+  });
+  qtyInput?.addEventListener('input', updateOrderSummary);
+
+  orderForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    updateOrderSummary();
+    if (!orderForm.checkValidity()) {
+      formError.classList.add('show');
+      confirmBox.classList.remove('show');
+      orderForm.reportValidity();
+      return;
+    }
+    formError.classList.remove('show');
+    currentOrderRef = makeOrderRef();
+    const data = buildOrderData(currentOrderRef);
+    const message = buildOrderMessage(data);
+    setHiddenOrderFields(data, message);
+    confirmDetails.textContent = message;
+    confirmWhatsapp.href = '#';
+    confirmBox.classList.add('show');
+    confirmBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  confirmWhatsapp?.addEventListener('click', async (e) => {
+    e.preventDefault();
+    updateOrderSummary();
+
+    if (!orderForm.checkValidity()) {
+      formError.classList.add('show');
+      orderForm.reportValidity();
+      return;
+    }
+
+    const data = buildOrderData(currentOrderRef || makeOrderRef());
+    currentOrderRef = data.orderRef;
+    const message = buildOrderMessage(data);
+    setHiddenOrderFields(data, message);
+
+    confirmWhatsapp.style.pointerEvents = 'none';
+    confirmWhatsapp.innerHTML = 'Sending order...';
+
+    // Submit directly to Netlify Forms. This must be tested on the live Netlify site,
+    // not by opening the HTML file locally.
+    HTMLFormElement.prototype.submit.call(orderForm);
+  });
+
+  document.getElementById('editOrder')?.addEventListener('click', () => {
+    confirmBox.classList.remove('show');
+    orderForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  orderForm?.addEventListener('reset', () => {
+    setTimeout(() => {
+      confirmBox.classList.remove('show');
+      formError.classList.remove('show');
+      updateOrderSummary();
+    }, 0);
+  });
+
+  updateOrderSummary();
+
+</script>
+</body>
+</html>
