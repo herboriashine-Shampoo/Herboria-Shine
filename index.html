@@ -1107,7 +1107,7 @@
     <div class="reveal">
       <p class="section-label" style="text-align:center;">Limited Stock Available</p>
       <h2 class="order-title">Order Now &amp; Feel<br>The <em>Difference!</em></h2>
-      <p class="order-desc">Fill your delivery details below. We will prepare the order details needed for PostEx, show you a final confirmation, and then send the complete order to us by email notification.</p>
+      <p class="order-desc">Fill your delivery details below. We will prepare the order details needed for PostEx, show you a final confirmation, and then open WhatsApp with the complete order message ready to send.</p>
     </div>
 
     <div class="order-price-box reveal">
@@ -1120,15 +1120,12 @@
       <div style="text-align:left;">
         <div style="font-size:0.8rem;color:var(--text-mid);margin-bottom:6px;">✓ Cash on Delivery</div>
         <div style="font-size:0.8rem;color:var(--text-mid);margin-bottom:6px;">✓ PostEx Delivery Details</div>
-        <div style="font-size:0.8rem;color:var(--text-mid);">✓ Email Order Notification</div>
+        <div style="font-size:0.8rem;color:var(--text-mid);">✓ WhatsApp Order Confirmation</div>
       </div>
     </div>
 
-    <form id="postexOrderForm" name="herboria-order" class="order-form-card reveal" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+    <form id="postexOrderForm" name="herboria-order" class="order-form-card reveal" method="POST" action="#" novalidate>
       <input type="hidden" name="form-name" value="herboria-order">
-      <p style="display:none;">
-        <label>Do not fill this out if you are human: <input name="bot-field"></label>
-      </p>
       <input type="hidden" id="orderRefField" name="orderRef" value="">
       <input type="hidden" id="productNameField" name="productName" value="Herboria Shine Shampoo 250ml">
       <input type="hidden" id="unitPriceField" name="unitPrice" value="550">
@@ -1137,7 +1134,7 @@
       <input type="hidden" id="codAmountField" name="codAmount" value="">
       <input type="hidden" id="paymentMethodField" name="paymentMethod" value="Cash on Delivery">
       <input type="hidden" id="orderMessageField" name="orderMessage" value="">
-      <input type="hidden" name="sendTo" value="herboriashine@gmail.com">
+      <input type="hidden" name="sendTo" value="923175308757">
       <div class="order-form-grid">
         <div class="form-group">
           <label for="customerName">Full Name <span class="required-mark">*</span></label>
@@ -1199,11 +1196,11 @@
         <button type="reset" class="btn-outline btn-form">Clear Form</button>
       </div>
       <div id="formError" class="form-error">Please fill all required fields before confirming your order.</div>
-      <p class="form-help">Required for PostEx: customer name, phone number, complete address, city, province, product, quantity, and COD amount. Orders will be captured in Netlify Forms and can be emailed to herboriashine@gmail.com.</p>
+      <p class="form-help">Required for PostEx: customer name, phone number, complete address, city, province, product, quantity, and COD amount. After review, WhatsApp will open with the full order details ready to send.</p>
 
       <div id="confirmBox" class="confirm-box">
         <div class="confirm-title">Confirm Your Order</div>
-        <p class="order-desc" style="margin-bottom:0;">Please check the details. After confirmation, your order will be sent to Herboria Shine by email notification. You do not need to open WhatsApp.</p>
+        <p class="order-desc" style="margin-bottom:0;">Please check the details. After confirmation, WhatsApp will open with your order message ready to send to Herboria Shine.</p>
         <div id="confirmDetails" class="confirm-details"></div>
         <div class="form-actions">
           <a id="confirmWhatsapp" class="whatsapp-btn confirm-whatsapp" href="#" target="_blank" rel="noopener">Confirm &amp; Send Order</a>
@@ -1268,8 +1265,9 @@
   });
 
 
-  // Netlify Forms email order system: review first, then send order without opening WhatsApp or email app
-  const ORDER_EMAIL = 'herboriashine@gmail.com';
+  // Static GitHub Pages order system: review first, then open WhatsApp with the order message.
+  // GitHub Pages cannot process POST form submissions, so the final send is handled through WhatsApp.
+  const WHATSAPP_NUMBER = '923175308757';
   const UNIT_PRICE = 550;
   const DELIVERY_CHARGES = 250;
   const orderForm = document.getElementById('postexOrderForm');
@@ -1322,7 +1320,7 @@
       cityName: cleanValue('cityName'),
       provinceName: cleanValue('provinceName'),
       orderNotes: notes,
-      sendTo: ORDER_EMAIL
+      sendTo: WHATSAPP_NUMBER
     };
   }
 
@@ -1347,6 +1345,10 @@ Province: ${data.provinceName}
 Notes/Landmark: ${data.orderNotes}
 
 Please confirm availability and dispatch through PostEx.`;
+  }
+
+  function buildWhatsAppUrl(message) {
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
   }
 
   function setHiddenOrderFields(data, message) {
@@ -1403,12 +1405,12 @@ Please confirm availability and dispatch through PostEx.`;
     const message = buildOrderMessage(data);
     setHiddenOrderFields(data, message);
     confirmDetails.textContent = message;
-    confirmWhatsapp.href = '#';
+    confirmWhatsapp.href = buildWhatsAppUrl(message);
     confirmBox.classList.add('show');
     confirmBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 
-  confirmWhatsapp?.addEventListener('click', async (e) => {
+  confirmWhatsapp?.addEventListener('click', (e) => {
     e.preventDefault();
     updateOrderSummary();
 
@@ -1423,12 +1425,9 @@ Please confirm availability and dispatch through PostEx.`;
     const message = buildOrderMessage(data);
     setHiddenOrderFields(data, message);
 
-    confirmWhatsapp.style.pointerEvents = 'none';
-    confirmWhatsapp.innerHTML = 'Sending order...';
-
-    // Submit directly to Netlify Forms. This must be tested on the live Netlify site,
-    // not by opening the HTML file locally.
-    HTMLFormElement.prototype.submit.call(orderForm);
+    const whatsappUrl = buildWhatsAppUrl(message);
+    confirmWhatsapp.href = whatsappUrl;
+    window.open(whatsappUrl, '_blank', 'noopener');
   });
 
   document.getElementById('editOrder')?.addEventListener('click', () => {
