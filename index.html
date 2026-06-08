@@ -1107,7 +1107,7 @@
     <div class="reveal">
       <p class="section-label" style="text-align:center;">Limited Stock Available</p>
       <h2 class="order-title">Order Now &amp; Feel<br>The <em>Difference!</em></h2>
-      <p class="order-desc">Fill your delivery details below. We will prepare the order details needed for PostEx, show you a final confirmation, and then send the complete order to us by email notification.</p>
+      <p class="order-desc">Fill your delivery details below. We will prepare the order details needed for PostEx, show you a final confirmation, and then transfer the complete order details to WhatsApp.</p>
     </div>
 
     <div class="order-price-box reveal">
@@ -1120,15 +1120,11 @@
       <div style="text-align:left;">
         <div style="font-size:0.8rem;color:var(--text-mid);margin-bottom:6px;">✓ Cash on Delivery</div>
         <div style="font-size:0.8rem;color:var(--text-mid);margin-bottom:6px;">✓ PostEx Delivery Details</div>
-        <div style="font-size:0.8rem;color:var(--text-mid);">✓ Email Order Notification</div>
+        <div style="font-size:0.8rem;color:var(--text-mid);">✓ WhatsApp Order Transfer</div>
       </div>
     </div>
 
-    <form id="postexOrderForm" name="herboria-order" class="order-form-card reveal" method="POST" action="https://formsubmit.co/herboriashine@gmail.com" novalidate>
-      <input type="hidden" name="_subject" value="New Herboria Shine Order">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="text" name="_honey" style="display:none">
+    <form id="postexOrderForm" name="herboria-order" class="order-form-card reveal" method="POST" action="#" novalidate>
       <input type="hidden" id="orderRefField" name="orderRef" value="">
       <input type="hidden" id="productNameField" name="productName" value="Herboria Shine Shampoo 250ml">
       <input type="hidden" id="unitPriceField" name="unitPrice" value="550">
@@ -1199,14 +1195,14 @@
         <button type="reset" class="btn-outline btn-form">Clear Form</button>
       </div>
       <div id="formError" class="form-error">Please fill all required fields before confirming your order.</div>
-      <p class="form-help">Required for PostEx: customer name, phone number, complete address, city, province, product, quantity, and COD amount. After confirmation, the order is submitted by email to herboriashine@gmail.com.</p>
+      <p class="form-help">Required for PostEx: customer name, phone number, complete address, city, province, product, quantity, and COD amount. After confirmation, WhatsApp will open with the complete order details ready to send to Herboria Shine.</p>
 
       <div id="confirmBox" class="confirm-box">
         <div class="confirm-title">Confirm Your Order</div>
-        <p class="order-desc" style="margin-bottom:0;">Please check the details. After confirmation, your order will be sent to Herboria Shine by email notification. You do not need to open WhatsApp.</p>
+        <p class="order-desc" style="margin-bottom:0;">Please check the details. After confirmation, WhatsApp will open with the complete order details ready to send to Herboria Shine.</p>
         <div id="confirmDetails" class="confirm-details"></div>
         <div class="form-actions">
-          <button type="button" id="confirmSendEmail" class="btn-primary btn-form confirm-email">Confirm &amp; Send Order</button>
+          <button type="button" id="confirmSendWhatsapp" class="btn-primary btn-form confirm-whatsapp">Confirm &amp; Send Order</button>
           <button type="button" id="editOrder" class="btn-outline btn-form">Edit Details</button>
         </div>
       </div>
@@ -1267,8 +1263,8 @@
   });
 
 
-  // Email order system: review first, then submit through FormSubmit. WhatsApp only opens from the WhatsApp icon.
-  const ORDER_EMAIL = 'herboriashine@gmail.com';
+  // WhatsApp order system: review first, then open WhatsApp with the full order message.
+  const ORDER_WHATSAPP = '923175308757';
   const UNIT_PRICE = 550;
   const DELIVERY_CHARGES = 250;
   const orderForm = document.getElementById('postexOrderForm');
@@ -1279,7 +1275,7 @@
   const formError = document.getElementById('formError');
   const confirmBox = document.getElementById('confirmBox');
   const confirmDetails = document.getElementById('confirmDetails');
-  const confirmSendEmail = document.getElementById('confirmSendEmail');
+  const confirmSendWhatsapp = document.getElementById('confirmSendWhatsapp');
   let currentOrderRef = '';
 
   function cleanValue(id) {
@@ -1321,7 +1317,7 @@
       cityName: cleanValue('cityName'),
       provinceName: cleanValue('provinceName'),
       orderNotes: notes,
-      sendTo: ORDER_EMAIL
+      sendTo: ORDER_WHATSAPP
     };
   }
 
@@ -1380,13 +1376,13 @@ Please confirm availability and dispatch through PostEx.`;
     const message = buildOrderMessage(data);
     setHiddenOrderFields(data, message);
     confirmDetails.textContent = message;
-    confirmSendEmail.disabled = false;
-    confirmSendEmail.innerHTML = 'Confirm &amp; Send Order';
+    confirmSendWhatsapp.disabled = false;
+    confirmSendWhatsapp.innerHTML = 'Confirm &amp; Send Order';
     confirmBox.classList.add('show');
     confirmBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 
-  confirmSendEmail?.addEventListener('click', (e) => {
+  confirmSendWhatsapp?.addEventListener('click', (e) => {
     e.preventDefault();
     updateOrderSummary();
 
@@ -1401,12 +1397,19 @@ Please confirm availability and dispatch through PostEx.`;
     const message = buildOrderMessage(data);
     setHiddenOrderFields(data, message);
 
-    confirmSendEmail.disabled = true;
-    confirmSendEmail.innerHTML = 'Sending order...';
+    confirmSendWhatsapp.disabled = true;
+    confirmSendWhatsapp.innerHTML = 'Opening WhatsApp...';
 
-    // Submit to FormSubmit so GitHub Pages does not receive a POST request.
-    // First use of FormSubmit may require confirming the destination email inbox.
-    HTMLFormElement.prototype.submit.call(orderForm);
+    const whatsappUrl = `https://wa.me/${ORDER_WHATSAPP}?text=${encodeURIComponent(message)}`;
+
+    // GitHub Pages is static hosting, so it cannot send order data by itself.
+    // This sends the complete order details to WhatsApp for the customer to submit.
+    window.location.href = whatsappUrl;
+
+    setTimeout(() => {
+      confirmSendWhatsapp.disabled = false;
+      confirmSendWhatsapp.innerHTML = 'Confirm &amp; Send Order';
+    }, 1200);
   });
 
   document.getElementById('editOrder')?.addEventListener('click', () => {
@@ -1418,9 +1421,9 @@ Please confirm availability and dispatch through PostEx.`;
     setTimeout(() => {
       confirmBox.classList.remove('show');
       formError.classList.remove('show');
-      if (confirmSendEmail) {
-        confirmSendEmail.disabled = false;
-        confirmSendEmail.innerHTML = 'Confirm &amp; Send Order';
+      if (confirmSendWhatsapp) {
+        confirmSendWhatsapp.disabled = false;
+        confirmSendWhatsapp.innerHTML = 'Confirm &amp; Send Order';
       }
       updateOrderSummary();
     }, 0);
